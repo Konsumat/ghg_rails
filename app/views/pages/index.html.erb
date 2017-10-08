@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%  %>
+    <%  %>
+    <% @records_array.each do |record| %>
+      <tr>
+        <td colspan="3"><%= record['luc_nr'] %></td>
+        <td colspan="3"><%= record['submission'] %></td>
+        <td colspan="3"><%=  %></td>
+      </tr>
+    <% end %>     
+  </tbody>
+
+</table>
