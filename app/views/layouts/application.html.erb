@@ -9,6 +9,50 @@
   </head>
 
   <body>
-    <%= yield %>
+<div class="navbar navbar-fixed-top navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">GHG Inventory of German Forests</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Annual Emissions</a></li>
+                <li><a href="#about">Emissions from areas with transition time</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="sidebar-nav">
+                <ul class="nav">
+                  <li class="active"><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+            </div>
+            <!--/.well -->
+        </div>
+        <!--/span-->
+
+        <div class="col-xs-12 col-sm-9">
+            <%= yield %>
+        </div>
+    </div>
+    <hr>
+
+    <footer>
+        <p>© Company 2013</p>
+    </footer>
+
+</div>
   </body>
 </html>
+
+

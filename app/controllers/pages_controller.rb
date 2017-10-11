@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    sql = "select luc_nr, submission, pool_abbr, inventory_year, substance, unit, value from pbeissert.em_annu limit 10"
+    sql = "select luc_nr, submission, pool_abbr, inventory_year, substance, unit, value from pbeissert.em_annu"
     @records_array = ActiveRecord::Base.connection.execute(sql)
   end
 end

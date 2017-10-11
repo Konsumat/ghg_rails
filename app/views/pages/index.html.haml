@@ -1,0 +1,33 @@
+%table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
+  %thead
+    %th{data: {sortable: 'true', field: 'email'}}
+      luc_nr
+    %th{data: {sortable: 'true', field: 'status'}}
+      submission
+    %th{data: {sortable: 'true', field: 'role'}}
+      pool
+    %th
+      inv
+    %th
+      sub
+    %th
+      unit
+    %th
+      val
+  %tbody
+    - @records_array.each do |record|
+      %tr
+        %td
+          = record["luc_nr"]
+        %td
+          = record["submission"]
+        %td
+          = record["pool_abbr"]
+        %td
+          = record["inventory_year"]
+        %td
+          = record["substance"]
+        %td
+          = record["unit"]
+        %td
+          = record["value"]
