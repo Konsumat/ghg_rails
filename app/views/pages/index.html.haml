@@ -1,3 +1,8 @@
+%a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseExample", :role => "button"}
+  Toggle Chart
+#collapseExample.collapse
+  = high_chart_globals(@chart_globals)
+  = high_chart("some_id", @chart)
 %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
   %thead
     %th{data: {sortable: 'true', field: 'email'}}
@@ -15,19 +20,21 @@
     %th
       val
   %tbody
-    - @records_array.each do |record|
+    - @em_annus.each do |em_annu|
       %tr
         %td
-          = record["luc_nr"]
+          = em_annu["luc_nr"]
         %td
-          = record["submission"]
+          = em_annu["submission"]
         %td
-          = record["pool_abbr"]
+          = em_annu["pool_abbr"]
         %td
-          = record["inventory_year"]
+          = em_annu["inventory_year"]
         %td
-          = record["substance"]
+          = em_annu["substance"]
         %td
-          = record["unit"]
+          = em_annu["unit"]
         %td
-          = record["value"]
+          = em_annu["value"]
+
+= paginate @em_annus, :theme => 'twitter-bootstrap-3'

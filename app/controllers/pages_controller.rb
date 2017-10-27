@@ -1,10 +1,47 @@
+class EmAnnu < ActiveRecord::Base
+  paginates_per 50
+  self.table_name = "pbeissert.em_annu"
+end
+
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   # GET /pages
   # GET /pages.json
   def index
-    sql = "select luc_nr, submission, pool_abbr, inventory_year, substance, unit, value from pbeissert.em_annu"
-    @records_array = ActiveRecord::Base.connection.execute(sql)
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(text: "Population vs GDP For 5 Big Countries [2009]")
+      f.xAxis(categories: ["United States", "Japan", "China", "Germany", "France"])
+      f.series(name: "GDP in Billions", yAxis: 0, data: [14119, 5068, 4985, 3339, 2656])
+      f.series(name: "Population in Millions", yAxis: 1, data: [310, 127, 1340, 81, 65])
+    
+      f.yAxis [
+        {title: {text: "GDP in Billions", margin: 70} },
+        {title: {text: "Population in Millions"}, opposite: true},
+      ]
+    
+      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
+      f.chart({defaultSeriesType: "column"})
+    end
+    
+    @chart_globals = LazyHighCharts::HighChartGlobals.new do |f|
+      f.global(useUTC: false)
+      f.chart(
+        backgroundColor: {
+          linearGradient: [0, 0, 500, 500],
+          stops: [
+            [0, "rgb(255, 255, 255)"],
+            [1, "rgb(240, 240, 255)"]
+          ]
+        },
+        borderWidth: 2,
+        plotBackgroundColor: "rgba(255, 255, 255, .9)",
+        plotShadow: true,
+        plotBorderWidth: 1
+      )
+      f.lang(thousandsSep: ",")
+      f.colors(["#90ed7d", "#f7a35c", "#8085e9", "#f15c80", "#e4d354"])
+    end
+    @em_annus = EmAnnu.all.page(params[:page])
   end
 end
