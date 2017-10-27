@@ -12,8 +12,8 @@
 Entries
 .well
   = search_form_for @q do |f|
-    = f.collection_select :luc_nr_eq, Luc.all, :luc_nr, :luc_nr, include_blank: true
-    = f.collection_select :pool_abbr_eq, Pool.all, :pool_abbr, :pool_abbr, include_blank: true
+    = f.collection_select :luc_nr_eq, Luc.all, :luc_nr, :luc_name, include_blank: true
+    = f.collection_select :pool_abbr_eq, Pool.all, :pool_abbr, :pool_name, include_blank: true
     = f.submit
 %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
   %thead
