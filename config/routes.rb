@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'pages#index'
-  resources :pages
+  root 'em_annus#index'
+  resources :em_annus
 end

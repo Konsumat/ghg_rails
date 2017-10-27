@@ -3,7 +3,7 @@ class EmAnnu < ActiveRecord::Base
   self.primary_key = 'luc_nr'
 end
 
-class PagesController < ApplicationController
+class EmAnnusController < ApplicationController
   before_action :set_page, only: %i[show edit update destroy]
 
   # GET /pages
