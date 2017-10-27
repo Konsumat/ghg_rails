@@ -1,8 +1,3 @@
-class EmAnnu < ActiveRecord::Base
-  self.table_name = 'pbeissert.em_annu'
-  self.primary_key = 'luc_nr'
-end
-
 class EmAnnusController < ApplicationController
   before_action :set_page, only: %i[show edit update destroy]
 

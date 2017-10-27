@@ -11,8 +11,7 @@
 Entries
 .well
   = search_form_for @q do |f|
-    = f.label :luc_nr_cont
-    = f.search_field :luc_nr_cont
+    = f.select :luc_nr_eq, options_from_collection_for_select(Luc.all,"luc_nr", "luc_nr",@q.luc_nr_eq)
     = f.submit
 %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
   %thead
