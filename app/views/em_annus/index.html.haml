@@ -1,6 +1,6 @@
-%a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseExample", :role => "button"}
+%a{"aria-controls" => "collapseChart", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseChart", :role => "button"}
   Toggle Chart
-  #collapseExample.collapse
+  #collapseChart.collapse
     .well
       = high_chart_globals(@chart_globals)
       = high_chart("some_id", @chart)
@@ -10,11 +10,23 @@
 //= @em_annus.total_entries
 = @em_annus.to_a.size
 Entries
-.well
+%br
+%a{"aria-controls" => "collapseFilters", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseFilters", :role => "button"}
+  Toggle Filters
+.well#collapseFilters.collapse
   = search_form_for @q do |f|
-    = f.collection_select :luc_nr_eq, Luc.all, :luc_nr, :luc_name, include_blank: true
-    = f.collection_select :pool_abbr_eq, Pool.all, :pool_abbr, :pool_name, include_blank: true
-    = f.submit
+    .row
+      .col-md-6
+        = f.collection_select :luc_nr_eq, Luc.all, :luc_nr, :luc_name, {include_blank: 'Filter by LUC'}, {class: '  form-control'}
+      .col-md-6
+        = f.collection_select :pool_abbr_eq, Pool.all, :pool_abbr, :pool_name, {include_blank: 'Filter by POOL'}, {class: 'form-control'}
+    .row{style: "margin-top: 5px"}
+      .col-md-6
+        = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {include_blank: 'Filter by SUBMISSION'},{class: 'form-control'}
+      .col-md-6
+        = f.collection_select :substance_eq, @substances, :to_s, :to_s, {include_blank: 'Filter by SUBSTANCE'}, {class: 'form-control'}
+    .row{style: "margin-top: 5px; margin-right: 0px"}
+      = f.submit class: 'btn btn-md btn-default pull-right'
 %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
   %thead
     %th

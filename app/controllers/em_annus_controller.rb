@@ -37,6 +37,8 @@ class EmAnnusController < ApplicationController
       f.lang(thousandsSep: ',')
       f.colors(['#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354'])
     end
+    @substances = EmAnnu.all_substances
+    @submissions = EmAnnu.all_submissions
     @q = EmAnnu.ransack(params[:q])
     @em_annus = @q.result(distinct: true)
   end
