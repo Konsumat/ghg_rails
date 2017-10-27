@@ -1,15 +1,21 @@
 %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseExample", :role => "button"}
   Toggle Chart
-#collapseExample.collapse
-  = high_chart_globals(@chart_globals)
-  = high_chart("some_id", @chart)
+  #collapseExample.collapse
+    .well
+      = high_chart_globals(@chart_globals)
+      = high_chart("some_id", @chart)
+%br
+= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer
+%br
+= @em_annus.total_entries
+Entries
 %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
   %thead
-    %th{data: {sortable: 'true', field: 'email'}}
-      luc_nr
-    %th{data: {sortable: 'true', field: 'status'}}
-      submission
-    %th{data: {sortable: 'true', field: 'role'}}
+    %th
+      = sort_link(@q, :luc_nr)
+    %th
+      = sort_link(@q, :submission)
+    %th
       pool
     %th
       inv
