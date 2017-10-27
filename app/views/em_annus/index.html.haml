@@ -5,9 +5,10 @@
       = high_chart_globals(@chart_globals)
       = high_chart("some_id", @chart)
 %br
-= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer
+//= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer
 %br
-= @em_annus.total_entries
+//= @em_annus.total_entries
+= @em_annus.to_a.size
 Entries
 .well
   = search_form_for @q do |f|
@@ -21,7 +22,7 @@ Entries
     %th
       = sort_link(@q, :submission)
     %th
-      = sort_link(@q, :pool)
+      = sort_link(@q, :pool_abbr)
     %th
       inv
     %th
@@ -48,4 +49,4 @@ Entries
         %td
           = em_annu["value"]
 
-= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer
+//= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer

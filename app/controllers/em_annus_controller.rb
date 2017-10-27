@@ -38,6 +38,6 @@ class EmAnnusController < ApplicationController
       f.colors(['#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354'])
     end
     @q = EmAnnu.ransack(params[:q])
-    @em_annus = @q.result(distinct: true).paginate(page: params[:page])
+    @em_annus = @q.result(distinct: true)
   end
 end
