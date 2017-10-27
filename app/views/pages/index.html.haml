@@ -37,4 +37,4 @@
         %td
           = em_annu["value"]
 
-= paginate @em_annus, :theme => 'twitter-bootstrap-3'
+= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer
