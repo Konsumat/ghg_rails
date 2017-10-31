@@ -1,16 +1,6 @@
-%a{"aria-controls" => "collapseChart", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseChart", :role => "button"}
-  Toggle Chart
-  #collapseChart.collapse
-    .well
-      = high_chart_globals(@chart_globals)
-      = high_chart("some_id", @chart)
-%br
-= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer
-%br
-= @em_annus.total_entries
-= @em_annus.to_a.size
-Entries
-%br
+.well
+  = high_chart_globals(@chart_globals)
+  = high_chart("some_id", @chart)
 .well
   = search_form_for @q do |f|
     .row
@@ -58,5 +48,3 @@ Entries
           = em_annu["unit"]
         %td
           = em_annu["value"]
-
-= will_paginate @em_annus, :renderer => WillPaginate::ActionView::LinkRenderer

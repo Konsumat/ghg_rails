@@ -9,6 +9,9 @@
         = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {},{class: 'form-control'}
     .row{style: "margin-top: 5px; margin-right: 0px"}
       = f.submit class: 'btn btn-md btn-default pull-right'
+.well
+  = high_chart_globals(@chart_globals)
+  = high_chart("some_id", @chart)
 %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
   %thead
     %th
