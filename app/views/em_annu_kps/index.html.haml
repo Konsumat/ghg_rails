@@ -1,0 +1,62 @@
+%a{"aria-controls" => "collapseChart", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseChart", :role => "button"}
+  Toggle Chart
+  #collapseChart.collapse
+    .well
+      = high_chart_globals(@chart_globals)
+      = high_chart("some_id", @chart)
+%br
+= will_paginate @em_annu_kps, :renderer => WillPaginate::ActionView::LinkRenderer
+%br
+= @em_annu_kps.total_entries
+= @em_annus_kp.to_a.size
+Entries
+%br
+.well
+  = search_form_for @q do |f|
+    .row
+      .col-md-6
+        = f.collection_select :luc_nr_eq, @luc_nrs, :to_s, :to_s, {},{class: 'form-control'}
+      .col-md-6
+        = f.collection_select :pool_abbr_eq, @pool_abbrs, :to_s, :to_s, {},{class: 'form-control'}
+    .row{style: "margin-top: 5px"}
+      .col-md-6
+        = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {},{class: 'form-control'}
+      .col-md-6
+        = f.collection_select :substance_eq, @substances, :to_s, :to_s, {}, {class: 'form-control'}
+    .row{style: "margin-top: 5px; margin-right: 0px"}
+      = f.submit class: 'btn btn-md btn-default pull-right'
+%table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
+  %thead
+    %th
+      = sort_link(@q, :luc_nr)
+    %th
+      = sort_link(@q, :submission)
+    %th
+      = sort_link(@q, :pool_abbr)
+    %th
+      = sort_link(@q, :inventory_year)
+    %th
+      = sort_link(@q, :substance)
+    %th
+      unit
+    %th
+      = sort_link(@q, :value)
+  %tbody
+    - @em_annu_kps.each do |em_annu_kp|
+      %tr
+        %td
+          = em_annu_kp["luc_nr"]
+        %td
+          = em_annu_kp["submission"]
+        %td
+          = em_annu_kp["pool_abbr"]
+        %td
+          = em_annu_kp["inventory_year"]
+        %td
+          = em_annu_kp["substance"]
+        %td
+          = em_annu_kp["unit"]
+        %td
+          = em_annu_kp["value"]
+
+= will_paginate @em_annu_kps, :renderer => WillPaginate::ActionView::LinkRenderer
