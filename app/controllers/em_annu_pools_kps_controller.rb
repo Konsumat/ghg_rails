@@ -21,7 +21,7 @@ class EmAnnuPoolsKpsController < ApplicationController
         end
         f.series(name: series.first['pool_abbr'], data: rounded_values)
       end
-
+      f.chart({renderTo: "chart1"})
       f.plot_options(column: { stacking: 'normal' })
 
       f.yAxis [
