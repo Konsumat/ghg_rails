@@ -7,6 +7,11 @@
       .col-md-6
         = f.label 'sub'
         = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {},{class: 'form-control'}
+    %br
+    .row
+      .col-md-6
+      .col-md-6
+        = f.submit class: 'btn btn-md btn-default pull-right'
 - if @results.empty?
   .well
     There are no results for this filter combination

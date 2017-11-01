@@ -1,4 +1,4 @@
-$ ->
-  $('select').each ->
-    $(this).change ->
-      $(this).closest("form").submit();
+# $ ->
+#   $('select').each ->
+#     $(this).change ->
+#       $(this).closest("form").submit();
