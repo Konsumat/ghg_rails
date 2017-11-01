@@ -22,4 +22,14 @@ class EmAnnuPoolsKp < ActiveRecord::Base
   def self.all_submissions
     order("submission").pluck("submission").uniq
   end
+  def self.to_csv
+    attributes = %w{luc_nr pool_abbr}
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |row|
+        csv << attributes.map{ |attr| row.send(attr) }
+      end
+    end
+  end
 end

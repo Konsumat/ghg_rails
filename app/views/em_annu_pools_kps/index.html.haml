@@ -9,6 +9,7 @@
         = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {},{class: 'form-control'}
     .row{style: "margin-top: 5px; margin-right: 0px"}
       = f.submit class: 'btn btn-md btn-default pull-right'
+      = link_to em_annu_pools_kps_path(format: :csv, all: true), tabindex: '-1'
 .well
   = high_chart_globals(@chart_globals)
   = high_chart("some_id", @chart)
