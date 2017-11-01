@@ -9,6 +9,6 @@ class EmAnnuKpsController < ApplicationController
     @substances = EmAnnuKp.all_substances
     @submissions = EmAnnuKp.all_submissions
     @q = EmAnnuKp.order('inventory_year').ransack(params[:q])
-    @em_annu_kps = @q.result(distinct: true).paginate(:page => params[:page])
+    @em_annu_kps = @q.result(distinct: true).paginate(page: params[:page])
   end
 end

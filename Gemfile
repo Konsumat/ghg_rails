@@ -17,9 +17,9 @@ gem 'ransack'
 gem 'bootstrap-table-rails'
 gem 'simple_form'
 
+gem 'bootstrap-will_paginate'
 gem 'bootstrap_form'
 gem 'will_paginate'
-gem 'bootstrap-will_paginate'
 
 gem 'haml'
 

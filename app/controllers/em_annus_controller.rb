@@ -1,5 +1,4 @@
 class EmAnnusController < ApplicationController
-
   # GET /pages
   # GET /pages.json
   def index
@@ -39,6 +38,6 @@ class EmAnnusController < ApplicationController
     @substances = EmAnnu.all_substances
     @submissions = EmAnnu.all_submissions
     @q = EmAnnu.order('inventory_year').ransack(params[:q])
-    @em_annus = @q.result(distinct: true).paginate(:page => params[:page])
+    @em_annus = @q.result(distinct: true).paginate(page: params[:page])
   end
 end

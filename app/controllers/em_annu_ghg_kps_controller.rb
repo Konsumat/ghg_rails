@@ -7,6 +7,6 @@ class EmAnnuGhgKpsController < ApplicationController
     @substances = EmAnnu.all_substances
     @submissions = EmAnnu.all_submissions
     @q = EmAnnuGhgKp.ransack(params[:q])
-    @results = @q.result(distinct: true).paginate(:page => params[:page])
+    @results = @q.result(distinct: true).paginate(page: params[:page])
   end
 end

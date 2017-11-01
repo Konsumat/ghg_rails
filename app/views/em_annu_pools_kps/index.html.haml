@@ -7,42 +7,46 @@
       .col-md-6
         = f.label 'sub'
         = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {},{class: 'form-control'}
-    .row{style: "margin-top: 5px; margin-right: 0px"}
-      = f.submit class: 'btn btn-md btn-default pull-right'
-      = link_to em_annu_pools_kps_path(format: :csv, all: true), tabindex: '-1'
-.well
-  = high_chart_globals(@chart_globals)
-  = high_chart("some_id", @chart)
-%table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
-  %thead
-    %th
-      = sort_link(@q, :luc_nr)
-    %th
-      = sort_link(@q, :pool_abbr)
-    %th
-      = sort_link(@q, :submission)
-    %th
-      = sort_link(@q, :inventory_year)
-    %th
-      = sort_link(@q, :substance)
-    %th
-      unit
-    %th
-      = sort_link(@q, :value)
-  %tbody
-    - @results.each do |row|
-      %tr
-        %td
-          = row["luc_nr"]
-        %td
-          = row["pool_abbr"]
-        %td
-          = row["submission"]
-        %td
-          = row["inventory_year"]
-        %td
-          = row["substance"]
-        %td
-          = row["unit"]
-        %td
-          = row["value"]
+- if @results.empty?
+  .well
+    There are no results for this filter combination
+- else
+  .well{style: 'background-color:white'}
+    .row
+      = high_chart("some_id", @chart)
+    .row.text-center
+      %br
+      = link_to 'export as csv',em_annu_pools_kps_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default'
+  %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
+    %thead
+      %th
+        = sort_link(@q, :luc_nr)
+      %th
+        = sort_link(@q, :pool_abbr)
+      %th
+        = sort_link(@q, :submission)
+      %th
+        = sort_link(@q, :inventory_year)
+      %th
+        = sort_link(@q, :substance)
+      %th
+        unit
+      %th
+        = sort_link(@q, :value)
+    %tbody
+      - @results.each do |row|
+        %tr
+          %td
+            = row["luc_nr"]
+          %td
+            = row["pool_abbr"]
+          %td
+            = row["submission"]
+          %td
+            = row["inventory_year"]
+          %td
+            = row["substance"]
+          %td
+            = row["unit"]
+          %td
+            = row["value"]

@@ -12,23 +12,22 @@
 #  value          :decimal(, )
 #
 
-
 class EmAnnuPoolsKp < ActiveRecord::Base
   self.table_name = 'pbeissert.em_annu_pools_kp'
   def self.all_luc_nrs
-    order("luc_nr").pluck("luc_nr").uniq
+    order('luc_nr').pluck('luc_nr').uniq
   end
 
   def self.all_submissions
-    order("submission").pluck("submission").uniq
+    order('submission').pluck('submission').uniq
   end
-  def self.to_csv
-    attributes = %w{luc_nr pool_abbr}
-    CSV.generate(headers: true) do |csv|
-      csv << attributes
 
-      all.each do |row|
-        csv << attributes.map{ |attr| row.send(attr) }
+  def self.export(results)
+    attributes = %w[luc_nr pool_abbr value]
+    CSV.generate(headers: true, col_sep: ';') do |csv|
+      csv << attributes
+      results.each do |row|
+        csv << attributes.map { |attr| row.send(attr) }
       end
     end
   end
