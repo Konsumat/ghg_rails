@@ -22,7 +22,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Annual Emissions</a></li>
+                <li class="active"><a href="<%= em_annu_kps_path%>">Annual Emissions</a></li>
                 <li><a href="#about">Emissions from areas with transition time</a></li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
 </div>
 <div class="container-fluid">
     <div class="row row-offcanvas row-offcanvas-left">
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
             <div class="sidebar-nav"> 
                <nav>
                    <ul class="nav">
@@ -55,7 +55,7 @@
         </div>
         <!--/span-->
 
-        <div class="col-xs-12 col-sm-9 main-content">
+        <div class="col-xs-12 col-sm-10 main-content">
             <%= yield %>
         </div>
     </div>
