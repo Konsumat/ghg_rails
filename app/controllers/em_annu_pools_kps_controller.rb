@@ -12,7 +12,7 @@ class EmAnnuPoolsKpsController < ApplicationController
       f.title(text: 'Time Series Pools')
       f.xAxis(categories: @results.order('inventory_year').map(&:inventory_year).uniq.sort!)
       f.legend(layout: 'horizontal', align: 'center')
-      all_series = @results.order('inventory_year desc').group_by { |x| x['pool_abbr'] }.map(&:last)
+      all_series = @results.order('inventory_year').group_by { |x| x['pool_abbr'] }.map(&:last)
       all_series.each do |series|
         values = series.map(&:value)
         rounded_values = []
