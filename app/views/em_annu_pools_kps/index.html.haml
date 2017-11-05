@@ -19,14 +19,6 @@
   .well{style: 'background-color:white'}
     .row
       = high_chart("some_id", @chart)
-
-
-
-
-
-
-
-
     .row.text-center
       %br
       = link_to 'export as csv',em_annu_pools_kps_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default'
