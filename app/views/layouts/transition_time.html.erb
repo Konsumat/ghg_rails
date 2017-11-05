@@ -22,8 +22,8 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Annual Emissions</a></li>
-                <li><a href="#about">Emissions from areas with transition time</a></li>
+                <li class="active"><a href="<%= em_annu_kps_path%>">Annual Emissions</a></li>
+                <li><a href="<%= '#'%>">Emissions from areas with transition time</a></li>
             </ul>
         </div>
     </div>
@@ -31,12 +31,25 @@
 <div class="container-fluid">
     <div class="row row-offcanvas row-offcanvas-left">
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-            <div class="sidebar-nav">
-                <ul class="nav">
-                  <li class="active"><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
+            <div class="sidebar-nav"> 
+               <nav>
+                   <ul class="nav">
+                       <li><h4>Kyoto</h3>
+                           <ul class="nav" id="submenu1" role="menu" aria-labelledby="btn-1">
+                               <%= active_link_to '> Em Annu KPS', em_annu_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Em Annu Pools KPS', em_annu_pools_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Em Annu GHG KPS', em_annu_ghg_kps_path, wrap_tag: :li%>
+                           </ul>
+                       </li>
+                       <li><h4>Lulu</h3>
+                           <ul class="nav " id="submenu2" role="menu" aria-labelledby="btn-1">
+                               <li><a href="#">> Fine 1</a></li>
+                               <li><a href="#">> Lulu 2</a></li>
+                               <li><a href="#">> Lulu 3</a></li>
+                           </ul>
+                       </li>
+                   </ul>
+               </nav>
             </div>
             <!--/.well -->
         </div>

@@ -1,4 +1,6 @@
 class EmAnnuGhgKpsController < ApplicationController
+  layout 'annual_emissions'
+
   before_action :set_page, only: %i[show edit update destroy]
 
   # GET /pages

@@ -1,4 +1,5 @@
 class EmAnnuPoolsKpsController < ApplicationController
+  layout 'annual_emissions'
   before_action :set_page, only: %i[show edit update destroy]
   def index
     @luc_names = EmAnnuPoolsKp.all_luc_names
