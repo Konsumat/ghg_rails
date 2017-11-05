@@ -11,7 +11,7 @@ class EmAnnuPoolsKp < ActiveRecord::Base
   end
 
   def self.export(results)
-    attributes = %w[luc_nr pool_abbr value]
+    attributes = %w[luc_name pool_abbr submission substance inventory_year unit value]
     CSV.generate(headers: true, col_sep: ';') do |csv|
       csv << attributes
       results.each do |row|
