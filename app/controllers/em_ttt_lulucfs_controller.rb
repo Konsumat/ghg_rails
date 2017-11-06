@@ -18,7 +18,7 @@ class EmTttLulucfsController < ApplicationController
 
     @results = @q.result(distinct: true)
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: 'Time Series Emissions')
+      f.title(text: "#{@q.luc_name_eq} #{@q.submission_eq}")
       f.xAxis(categories: @results.order('inventory_year').map(&:inventory_year).uniq.sort!)
       f.legend(layout: 'horizontal', align: 'center')
       all_series = @results.order('inventory_year desc').group_by { |x| x['pool_name_en'] }.map(&:last)

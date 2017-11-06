@@ -1,5 +1,8 @@
 
 class EmTttKp < ActiveRecord::Base
+
+  default_scope { order('inventory_year') }
+
   self.table_name = 'pbeissert.em_ttt_kp'
 
   def self.all_substances

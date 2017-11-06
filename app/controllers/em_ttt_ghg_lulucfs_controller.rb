@@ -10,7 +10,7 @@ class EmTttGhgLulucfsController < ApplicationController
     @q.submission_eq = @submissions.first unless params[:q]
     @results = @q.result(distinct: true)
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: @results.order('luc_name').map(&:luc_name).uniq.sort!)
+      f.title(text: "#{@q.luc_name_eq} #{@q.submission_eq}")
       f.xAxis(categories: @results.order('inventory_year').map(&:inventory_year).uniq.sort!)
       f.legend(layout: 'horizontal', align: 'center')
       all_series = @results.order('inventory_year').group_by { |x| x['substance'] }.map(&:last)

@@ -30,23 +30,23 @@
   %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
     %thead
       %th
-        = sort_link(@q, :luc_name)
+        luc_name
       %th
-        = sort_link(@q, :submission)
+        submission
       %th
-        = sort_link(@q, :pool_name_en)
+        pool_name_en
       %th
-        = sort_link(@q, :inventory_year)
+        inventory_year
       %th
-        = sort_link(@q, :state)
+        state
       %th
-        = sort_link(@q, :substance)
+        substance
       %th
         unit
       %th
-        = sort_link(@q, :value)
+        value
     %tbody
-      - @results.each do |em_annu_kp|
+      - @results.each do |em_ttt_kp|
         %tr
           %td
             = em_ttt_kp["luc_name"]
