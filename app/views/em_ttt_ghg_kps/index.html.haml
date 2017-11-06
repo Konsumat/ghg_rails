@@ -17,7 +17,7 @@
       .col-md-6
         = f.submit class: 'btn btn-md btn-default pull-right'
         - unless @results.empty?
-          = link_to 'export as csv',em_annu_pools_kps_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default pull-right', style: 'margin-right: 5px'
+          = link_to 'export as csv',em_ttt_ghg_kps_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default pull-right', style: 'margin-right: 5px'
 - if @results.empty?
   .well
     There are no results for this filter combination
@@ -26,8 +26,6 @@
     %thead
       %th
         = sort_link(@q, :luc_name)
-      %th
-        = sort_link(@q, :pool_abbr)
       %th
         submission
       %th
@@ -43,8 +41,6 @@
         %tr
           %td
             = row["luc_name"]
-          %td
-            = row["pool_abbr"]
           %td
             = row["submission"]
           %td

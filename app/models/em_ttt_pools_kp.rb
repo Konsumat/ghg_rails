@@ -1,10 +1,10 @@
 
 
-class EmAnnuPoolsKp < ActiveRecord::Base
+class EmTttPoolsKp < ActiveRecord::Base
   
   default_scope { order('pool_abbr, inventory_year') }
 
-  self.table_name = 'pbeissert.em_annu_pools_kp'
+  self.table_name = 'pbeissert.em_ttt_pools_kp'
   def self.all_luc_names
     order('luc_name').pluck('luc_name').uniq
   end

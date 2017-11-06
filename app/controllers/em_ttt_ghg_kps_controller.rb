@@ -1,11 +1,11 @@
-class EmAnnuGhgKpsController < ApplicationController
-  layout 'annual_emissions'
+class EmTttGhgKpsController < ApplicationController
+  layout 'transition_time'
   before_action :set_page, only: %i[show edit update destroy]
   def index
-    @luc_names = EmAnnuGhgKp.all_luc_names
-    @submissions = EmAnnuGhgKp.all_submissions
+    @luc_names = EmTttGhgKp.all_luc_names
+    @submissions = EmTttGhgKp.all_submissions
 
-    @q = EmAnnuGhgKp.ransack(params[:q])
+    @q = EmTttGhgKp.ransack(params[:q])
     @q.luc_name_eq = @luc_names.first unless params[:q]
     @q.submission_eq = @submissions.first unless params[:q]
     @results = @q.result(distinct: true)
@@ -32,7 +32,7 @@ class EmAnnuGhgKpsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.csv { send_data EmAnnuGhgKp.export(@results), type: 'text/csv; charset=utf-8; header=present', disposition: "attachment; filename=export.csv" }
+      format.csv { send_data EmTttGhgKp.export(@results), type: 'text/csv; charset=utf-8; header=present', disposition: "attachment; filename=export.csv" }
     end
   end
 end

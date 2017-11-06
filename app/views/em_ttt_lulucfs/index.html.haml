@@ -22,7 +22,7 @@
     .row{style: "margin-top: 5px; margin-right: 0px"}
       = f.submit class: 'btn btn-md btn-default pull-right'
       - unless @results.empty?
-        = link_to 'export as csv',em_annu_kps_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default pull-right', style: 'margin-right: 5px'
+        = link_to 'export as csv',em_ttt_lulucfs_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default pull-right', style: 'margin-right: 5px'
 - if @results.empty?
   .well
     There are no results for this filter combination
@@ -46,21 +46,21 @@
       %th
         = sort_link(@q, :value)
     %tbody
-      - @results.each do |em_annu_kp|
+      - @results.each do |em_ttt_lulucf|
         %tr
           %td
-            = em_annu_kp["luc_name"]
+            = em_ttt_lulucf["luc_name"]
           %td
-            = em_annu_kp["submission"]
+            = em_ttt_lulucf["submission"]
           %td
-            = em_annu_kp["pool_name_en"]
+            = em_ttt_lulucf["pool_name_en"]
           %td
-            = em_annu_kp["inventory_year"]
+            = em_ttt_lulucf["inventory_year"]
           %td
-            = em_annu_kp["state_name_en"]           
+            = em_ttt_lulucf["state_name_en"]           
           %td
-            = em_annu_kp["substance"]
+            = em_ttt_lulucf["substance"]
           %td
-            = em_annu_kp["unit"]
+            = em_ttt_lulucf["unit"]
           %td
-            = em_annu_kp["value"]
+            = em_ttt_lulucf["value"]

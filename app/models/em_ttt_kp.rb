@@ -1,6 +1,6 @@
 
-class EmAnnuKp < ActiveRecord::Base
-  self.table_name = 'pbeissert.em_annu_kp'
+class EmTttKp < ActiveRecord::Base
+  self.table_name = 'pbeissert.em_ttt_kp'
 
   def self.all_substances
     order('substance').pluck('substance').uniq

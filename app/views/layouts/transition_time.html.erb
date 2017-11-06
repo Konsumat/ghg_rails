@@ -34,18 +34,19 @@
             <div class="sidebar-nav"> 
                <nav>
                    <ul class="nav">
+                      <p class="strong">Search Emissions</p>
                        <li><h4>Kyoto</h3>
                            <ul class="nav" id="submenu1" role="menu" aria-labelledby="btn-1">
-                               <%= active_link_to '> Em Annu KPS', em_annu_kps_path, wrap_tag: :li%>
-                               <%= active_link_to '> Em Annu Pools KPS', em_annu_pools_kps_path, wrap_tag: :li%>
-                               <%= active_link_to '> Em Annu GHG KPS', em_annu_ghg_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Em Ttt KPS', em_ttt_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Em Ttt Pools KPS', em_ttt_pools_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Em Ttt GHG KPS', em_ttt_ghg_kps_path, wrap_tag: :li%>
                            </ul>
                        </li>
-                       <li><h4>Lulu</h3>
+                       <li><h4>LULUCF</h3>
                            <ul class="nav " id="submenu2" role="menu" aria-labelledby="btn-1">
-                               <li><a href="#">> Fine 1</a></li>
-                               <li><a href="#">> Lulu 2</a></li>
-                               <li><a href="#">> Lulu 3</a></li>
+                               <%= active_link_to '> Em Ttt LULUCFS', em_ttt_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> Em Ttt Pools LULUCFS', em_ttt_pools_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> Em Ttt GHG LULUCFS', em_ttt_ghg_lulucfs_path, wrap_tag: :li%>
                            </ul>
                        </li>
                    </ul>
