@@ -6,10 +6,10 @@
   = search_form_for @q do |f|
     .row
       .col-md-6
-        = f.label 'luc'
+        = f.label 'Activity'
         = f.collection_select :luc_name_eq, @luc_names, :to_s, :to_s, {},{class: 'form-control'}
       .col-md-6
-        = f.label 'sub'
+        = f.label 'Submission'
         = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {},{class: 'form-control'}
     %br
     .row
@@ -17,7 +17,7 @@
       .col-md-6
         = f.submit class: 'btn btn-md btn-default pull-right'
         - unless @results.empty?
-          = link_to 'export as csv',em_ttt_pools_kps_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default pull-right', style: 'margin-right: 5px'
+          = link_to 'Export CSV',em_ttt_pools_kps_path(params.merge(format: 'csv')), tabindex: '-1', class: 'btn btn-md btn-default pull-right', style: 'margin-right: 5px'
 - if @results.empty?
   .well
     There are no results for this filter combination
@@ -25,19 +25,19 @@
   %table.table.table-striped{data: {toggle:"table", search: "true", pagination: "true", toolbar: '#toolbar' }}
     %thead
       %th
-        luc_name
+        Activity
       %th
-        pool_abbr
+        Pool
       %th
-        submission
+        Submission
       %th
-        inventory_year
+        Inventory year
       %th
-        substance
+        Substance
       %th
-        unit
+        Unit
       %th
-        value
+        Value
     %tbody
       - @results.each do |row|
         %tr
