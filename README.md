@@ -1,24 +1,21 @@
-# README
+Installation Procedure
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Install PostgreSQL.
 
-Things you may want to cover:
+2. Load schema "pbeissert" into a database with the Restore-Tool of pgAdmin.
 
-* Ruby version
+3. Edit the database.yml-file in the config-folder of this folder and edit the database-conenction
+   according to your specifications
 
-* System dependencies
+4. Run the RailsInstaller.
 
-* Configuration
+5. Open command prompt "cmd" and browse to the directory of this folder and type "rails s" and press enter.
+   For example  "C:\ghg_rails\rails s"
+   
+6. You will be asked to run bundle installer. Run the bundle installer to install necessary gems.
 
-* Database creation
+7. Run "rails s" again to start the local server environment.
 
-* Database initialization
+8. Open your browser and access the application via locolhost:3000
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Remark: As this version is provided with empty data-tables inside database-schema functionality will be limited.

@@ -27,6 +27,8 @@ gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 
+gem 'passenger'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
