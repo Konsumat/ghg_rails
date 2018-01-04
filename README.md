@@ -6,8 +6,8 @@ Ruby version 2.1.5 - X
 
 * System dependencies
 
- - PostgreSQL
- - NODE.js
+  - PostgreSQL
+  - NODE.js
 
  * Database initialization
 
@@ -15,7 +15,7 @@ Ruby version 2.1.5 - X
 
 * Configuration
 
- - run bundle installer
+  - run bundle installer
 
 
 * Deployment instructions
