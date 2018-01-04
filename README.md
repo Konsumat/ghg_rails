@@ -11,7 +11,7 @@ Ruby version 2.1.5 - X
 
  * Database initialization
 
-  - EXTERNAL: import schema into a running PostgreSQL-instance and configure database.yml accordingly
+   - EXTERNAL: import schema into a running PostgreSQL-instance and configure database.yml accordingly
 
 * Configuration
 
