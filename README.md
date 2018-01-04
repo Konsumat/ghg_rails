@@ -1,21 +1,25 @@
-Installation Procedure
+# README
 
-1. Install PostgreSQL.
+Application for data visualization accessing database containing GHG-data
 
-2. Load schema "pbeissert" into a database with the Restore-Tool of pgAdmin.
+Ruby version 2.1.5 - X
 
-3. Edit the database.yml-file in the config-folder of this folder and edit the database-conenction
-   according to your specifications
+* System dependencies
 
-4. Run the RailsInstaller.
+ - PostgreSQL
+ - NODE.js
 
-5. Open command prompt "cmd" and browse to the directory of this folder and type "rails s" and press enter.
-   For example  "C:\ghg_rails\rails s"
-   
-6. You will be asked to run bundle installer. Run the bundle installer to install necessary gems.
+ * Database initialization
 
-7. Run "rails s" again to start the local server environment.
+  - EXTERNAL: import schema into a running PostgreSQL-instance and configure database.yml accordingly
 
-8. Open your browser and access the application via locolhost:3000
+* Configuration
 
-Remark: As this version is provided with empty data-tables inside database-schema functionality will be limited.
+ - run bundle installer
+
+
+* Deployment instructions
+
+  - on Debian Server via passenger & Apache
+
+  
