@@ -5,12 +5,15 @@
 .well
   = search_form_for @q do |f|
     .row
-      .col-md-6
+      .col-md-4
         = f.label 'Land-Use Category'
         = f.collection_select :luc_name_eq, @luc_names, :to_s, :to_s, {},{class: 'form-control'}
-      .col-md-6
+      .col-md-4
         = f.label 'Submission'
         = f.collection_select :submission_eq, @submissions, :to_s, :to_s, {},{class: 'form-control'}
+      .col-md-4
+        = f.label 'State'
+        = f.collection_select :state_name_en_eq, @state_name_ens, :to_s, :to_s, {}, {class: 'form-control'}
     %br
     .row
       .col-md-6
@@ -31,6 +34,8 @@
       %th
         Inventory year
       %th
+        State
+      %th
         Substance
       %th
         Unit
@@ -45,6 +50,8 @@
             = row["submission"]
           %td
             = row["inventory_year"]
+          %td
+            = row["state_name_en"]
           %td
             = row["substance"]
           %td

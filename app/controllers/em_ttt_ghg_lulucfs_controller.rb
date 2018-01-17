@@ -4,6 +4,7 @@ class EmTttGhgLulucfsController < ApplicationController
   def index
     @luc_names = EmTttGhgLulucf.all_luc_names
     @submissions = EmTttGhgLulucf.all_submissions
+    @state_name_ens = EmTttGhgLulucf.all_state_name_ens
 
     @q = EmTttGhgLulucf.ransack(params[:q])
     @q.luc_name_eq = @luc_names.first unless params[:q]

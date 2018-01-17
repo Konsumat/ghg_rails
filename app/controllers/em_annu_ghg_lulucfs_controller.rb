@@ -4,11 +4,11 @@ class EmAnnuGhgLulucfsController < ApplicationController
   def index
     @luc_names = EmAnnuGhgLulucf.all_luc_names
     @submissions = EmAnnuGhgLulucf.all_submissions
+    @state_name_ens = EmAnnuGhgLulucf.all_state_name_ens
 
     @q = EmAnnuGhgLulucf.ransack(params[:q])
     @q.luc_name_eq = @luc_names.first unless params[:q]
     @q.submission_eq = @submissions.first unless params[:q]
-
     @results = @q.result(distinct: true)
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "#{@q.luc_name_eq} #{@q.submission_eq}")

@@ -4,6 +4,7 @@ class EmAnnuGhgKpsController < ApplicationController
   def index
     @luc_names = EmAnnuGhgKp.all_luc_names
     @submissions = EmAnnuGhgKp.all_submissions
+    @state_name_ens = EmAnnuGhgKp.all_state_name_ens
 
     @q = EmAnnuGhgKp.ransack(params[:q])
     @q.luc_name_eq = @luc_names.first unless params[:q]

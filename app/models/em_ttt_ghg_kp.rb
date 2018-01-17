@@ -4,7 +4,7 @@ class EmTttGhgKp < ActiveRecord::Base
   
   default_scope { order('substance, inventory_year') }
 
-  self.table_name = 'pbeissert.em_ttt_ghg_kp'
+  self.table_name = 'web_pbeissert.em_ttt_ghg_kp'
   def self.all_luc_names
     order('luc_name').pluck('luc_name').uniq
   end
@@ -13,8 +13,12 @@ class EmTttGhgKp < ActiveRecord::Base
     order('submission').pluck('submission').uniq
   end
 
+  def self.all_state_name_ens
+    order('state_name_en').pluck('state_name_en').uniq
+  end
+
   def self.export(results)
-    attributes = %w[luc_name submission inventory_year substance unit value]
+    attributes = %w[luc_name submission inventory_year state_name_en substance unit value]
     CSV.generate(headers: true, col_sep: ';') do |csv|
       csv << attributes
       results.each do |row|

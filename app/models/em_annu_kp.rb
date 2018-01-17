@@ -3,7 +3,7 @@ class EmAnnuKp < ActiveRecord::Base
 
   default_scope { order('inventory_year') }
 
-  self.table_name = 'pbeissert.em_annu_kp'
+  self.table_name = 'web_pbeissert.em_annu_kp'
 
   def self.all_substances
     order('substance').pluck('substance').uniq

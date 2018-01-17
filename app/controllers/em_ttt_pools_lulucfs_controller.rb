@@ -4,6 +4,7 @@ class EmTttPoolsLulucfsController < ApplicationController
   def index
     @luc_names = EmTttPoolsLulucf.all_luc_names
     @submissions = EmTttPoolsLulucf.all_submissions
+    @state_name_ens = EmTttPoolsLulucf.all_state_name_ens
 
     @q = EmTttPoolsLulucf.ransack(params[:q])
     @q.luc_name_eq = @luc_names.first unless params[:q]
