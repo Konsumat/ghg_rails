@@ -3,7 +3,7 @@
   <head>
     <title>GhG-Inventory LULUCF</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag 'favicon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -12,19 +12,20 @@
 
   <body>
 <div class="navbar navbar-fixed-top navbar-default" role="navigation">
-    <div class="container-fluid">
+       <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">GHG-Inventory of German Forests</a>
+            <a class="navbar-brand" href="https://www.thuenen.de/en/wo/fields-of-activity/forest-monitoring/forest-greenhouse-gas-inventories/" target="_blank" 
+            >Greenhouse Gas Inventory of German Forests</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<%= em_annu_kps_path%>">Annual Emissions</a></li>
-                <li><a href="<%= em_ttt_kps_path%>">Emissions from areas with transition time</a></li>
+                <li class="active"><a href="<%= em_annu_pools_kps_path%>">Annual Emissions</a></li>
+                <li><a href="<%= em_ttt_pools_kps_path%>">Emissions from areas with transition time</a></li>
             </ul>
         </div>
     </div>
@@ -34,20 +35,20 @@
         <div class="col-xs-5 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
             <div class="sidebar-nav"> 
                <nav>
-                   <ul class="nav">
+                   <ul class="nav"> 
                       <p class="strong">Search Emissions</p>
                        <li><h4>Kyoto</h3>
                            <ul class="nav" id="submenu1" role="menu" aria-labelledby="btn-1">
-                               <%= active_link_to '> Full Search', em_annu_kps_path, wrap_tag: :li%>
-                               <%= active_link_to '> Pools', em_annu_pools_kps_path, wrap_tag: :li%>
-                               <%= active_link_to '> GhG', em_annu_ghg_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Pool Sources', em_annu_pools_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> GhG Fluxes', em_annu_ghg_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Extended Search', em_annu_kps_path, wrap_tag: :li%>
                            </ul>
                        </li>
                        <li><h4>LULUCF</h3>
                            <ul class="nav " id="submenu2" role="menu" aria-labelledby="btn-1">
-                               <%= active_link_to '> Full Search', em_annu_lulucfs_path, wrap_tag: :li%>
-                               <%= active_link_to '> Pools', em_annu_pools_lulucfs_path, wrap_tag: :li%>
-                               <%= active_link_to '> GhG', em_annu_ghg_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> Pool Sources', em_annu_pools_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> GhG Fluxes', em_annu_ghg_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> Extended Search', em_annu_lulucfs_path, wrap_tag: :li%>
                            </ul>
                        </li>
                    </ul>
@@ -64,8 +65,9 @@
     <hr>
 
     <footer>
-        <p>© Philipp Beissert <br>
-        Thünen-Institute of Forest Ecosystems</p>
+        <p>© GhG-Inventory v1.2 - Philipp Beissert <br>
+        <a href="https://www.thuenen.de/en/wo/" target="_blank" >Thünen-Institute of Forest Ecosystems </a> 
+        </p>
     </footer>
 
 </div>

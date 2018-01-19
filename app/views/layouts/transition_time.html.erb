@@ -3,7 +3,7 @@
   <head>
     <title>GhG-Inventory LULUCF</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag 'favicon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -19,12 +19,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">GHG-Inventory of German Forests</a>
+            <a class="navbar-brand" href="https://www.thuenen.de/en/wo/fields-of-activity/forest-monitoring/forest-greenhouse-gas-inventories/" target="_blank" 
+            >Greenhouse Gas Inventory of German Forests</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="<%= em_annu_kps_path%>">Annual Emissions</a></li>
-                <li class="active"><a href="<%= em_ttt_kps_path%>">Emissions from areas with transition time</a></li>
+                <li><a href="<%= em_annu_pools_kps_path%>">Annual Emissions</a></li>
+                <li class="active"><a href="<%= em_ttt_pools_kps_path%>">Emissions from areas with transition time</a></li>
             </ul>
         </div>
     </div>
@@ -38,16 +39,16 @@
                       <p class="strong">Search Emissions</p>
                        <li><h4>Kyoto</h3>
                            <ul class="nav" id="submenu1" role="menu" aria-labelledby="btn-1">
-                               <%= active_link_to '> Full Search', em_ttt_kps_path, wrap_tag: :li%>
-                               <%= active_link_to '> Pools', em_ttt_pools_kps_path, wrap_tag: :li%>
-                               <%= active_link_to '> GhG', em_ttt_ghg_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Pool Sources', em_ttt_pools_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> GhG Fluxes', em_ttt_ghg_kps_path, wrap_tag: :li%>
+                               <%= active_link_to '> Extended Search', em_ttt_kps_path, wrap_tag: :li%>
                            </ul>
                        </li>
                        <li><h4>LULUCF</h3>
                            <ul class="nav " id="submenu2" role="menu" aria-labelledby="btn-1">
-                               <%= active_link_to '> Full Search', em_ttt_lulucfs_path, wrap_tag: :li%>
-                               <%= active_link_to '> Pools', em_ttt_pools_lulucfs_path, wrap_tag: :li%>
-                               <%= active_link_to '> GhG', em_ttt_ghg_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> Pool Sources', em_ttt_pools_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> GhG Fluxes', em_ttt_ghg_lulucfs_path, wrap_tag: :li%>
+                               <%= active_link_to '> Extended Search', em_ttt_lulucfs_path, wrap_tag: :li%>
                            </ul>
                        </li>
                    </ul>
@@ -64,8 +65,9 @@
     <hr>
 
     <footer>
-        <p>© Philipp Beissert <br>
-        Thünen-Institute of Forest Ecosystems</p>
+        <p>© GhG-Inventory v1.2 - Philipp Beissert <br>
+        <a href="https://www.thuenen.de/en/wo/" target="_blank" >Thünen-Institute of Forest Ecosystems </a> 
+        </p>
     </footer>
 
 </div>

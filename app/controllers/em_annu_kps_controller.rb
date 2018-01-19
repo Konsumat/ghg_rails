@@ -11,7 +11,11 @@ class EmAnnuKpsController < ApplicationController
     
     @q = EmAnnuKp.ransack(params[:q])
     @q.luc_name_eq = @luc_names.first unless params[:q]
+    @q.pool_name_en_eq = @pool_name_ens.first unless params[:q]
+    @q.substance_eq = @substances.first unless params[:q]
     @q.submission_eq = @submissions.first unless params[:q]
+    @q.state_name_en_eq = @state_name_ens.first unless params[:q]
+    
     @results = @q.result(distinct: true)
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "#{@q.luc_name_eq} #{@q.submission_eq}")

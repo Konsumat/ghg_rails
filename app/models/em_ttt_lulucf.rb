@@ -10,7 +10,7 @@ class EmTttLulucf < ActiveRecord::Base
   end
 
   def self.all_submissions
-    order('submission').pluck('submission').uniq
+    order('submission DESC').pluck('submission').uniq
   end
 
   def self.all_luc_names

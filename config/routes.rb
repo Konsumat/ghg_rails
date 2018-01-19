@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'em_annu_kps#index'
+  root 'em_annu_pools_kps#index'
   resources :em_annu_kps
   resources :em_annu_lulucfs
   resources :em_annu_ghg_kps
